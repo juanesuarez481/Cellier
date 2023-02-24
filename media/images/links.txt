@@ -1,0 +1,123 @@
+recipe-book: https://www.flaticon.com/free-icon/recipe-book_7373689
+vegetables-salad: https://www.flaticon.com/free-icon/vegetables_9724000
+muffin: https://www.flaticon.com/free-icon/muffin_9535813
+filtered-coffee: https://www.flaticon.com/free-icon/cold-brew_9535646
+moka-coffee: https://www.flaticon.com/free-icon/coffee-maker_9535607
+pancakes: https://www.flaticon.com/free-icon/pancakes_4893698
+vegetables-salad-2: https://www.flaticon.com/free-icon/salad_9256264
+avocado: https://www.flaticon.com/free-icon/avocado_9477522
+pumpkin: https://www.flaticon.com/free-icon/pumpkin_7189469
+yellow-corn: https://www.flaticon.com/free-icon/corn_9477586
+radish: https://www.flaticon.com/free-icon/radish_9477570
+kale: https://www.flaticon.com/free-icon/kale_9477496
+tomato: https://www.flaticon.com/free-icon/tomato_9477606
+carrot: https://www.flaticon.com/free-icon/carrot_9477528
+broccoli: https://www.flaticon.com/free-icon/broccoli_9477506
+yellow-lemon: https://www.flaticon.com/free-icon/lemon_9477585
+blueberry: https://www.flaticon.com/free-icon/blueberry_9477498
+eggplant: https://www.flaticon.com/free-icon/eggplant_9477502
+cauliflower: https://www.flaticon.com/free-icon/cauliflower_8853450
+watermelon: https://www.flaticon.com/free-icon/watermelon_9477542
+asparagus: https://www.flaticon.com/free-icon/asparagus_9477605
+rice-chicken: https://www.flaticon.com/free-icon/biryani_4781223
+choco-milkshake: https://www.flaticon.com/free-icon/milkshake_9059240
+cappuccino: https://www.flaticon.com/free-icon/cappuccino_9059369
+mocaccino: https://www.flaticon.com/free-icon/mochaccino_3361478
+eggs: https://www.flaticon.com/free-icon/eggs_8949476
+salami: https://www.flaticon.com/free-icon/salami_8880474
+salmon: https://www.flaticon.com/free-icon/salmon_8880487
+bacon-strips: https://www.flaticon.com/free-icon/bacon-strips_8880523
+ribs: https://www.flaticon.com/free-icon/ribs_9112454
+raw-ribs: https://www.flaticon.com/free-icon/ribs_1332378
+pudding: https://www.flaticon.com/free-icon/pudding_9112597
+parsley: https://www.flaticon.com/free-icon/parsley_8853429
+potato: https://www.flaticon.com/free-icon/potato_8853421
+sweet-potato: https://www.flaticon.com/free-icon/sweet-potato_8853425
+brussels-sprouts: https://www.flaticon.com/free-icon/brussels-sprouts_8853456
+basil: https://www.flaticon.com/free-icon/basil_5409402
+onion: https://www.flaticon.com/free-icon/onion_8853483
+garlic: https://www.flaticon.com/free-icon/garlic_8853486
+cherry-tomato: https://www.flaticon.com/free-icon/cherry-tomato_8853489
+chili-pepper: https://www.flaticon.com/free-icon/chili-pepper_8853496
+beans: https://www.flaticon.com/free-icon/beans_8853527
+lentils: https://www.flaticon.com/free-icon/lentils_8853533
+peas: https://www.flaticon.com/free-icon/peas_8853524
+ginger: https://www.flaticon.com/free-icon/ginger_8853549
+mushroom: https://www.flaticon.com/free-icon/mushroom_8853559
+banana: https://www.flaticon.com/free-icon/banana_8716302
+peach: https://www.flaticon.com/free-icon/peach_8716233
+kiwi: https://www.flaticon.com/free-icon/kiwi_8716254
+cabbage: https://www.flaticon.com/free-icon/cabbage_8716236
+grapes: https://www.flaticon.com/free-icon/grapes_8716242
+pear: https://www.flaticon.com/free-icon/pear_8716248
+milk: https://www.flaticon.com/free-icon/milk_8716257
+chicken: https://www.flaticon.com/free-icon/chicken_8126655
+sausage: https://www.flaticon.com/free-icon/sausage_8126560
+orange: https://www.flaticon.com/free-icon/orange_8126691
+cheesecake: https://www.flaticon.com/free-icon/cheesecake_8087381
+red-guavas: https://www.flaticon.com/free-icon/red-guavas_7862485
+granadilla: https://www.flaticon.com/free-icon/granadilla_7862495
+pineapple: https://www.flaticon.com/free-icon/pineapple_7862382
+apple: https://www.flaticon.com/free-icon/apple_7862380
+ramen: https://www.flaticon.com/free-icon/ramen_7402224
+cheese-slice: https://www.flaticon.com/free-icon/cheese-slice_7385912
+pesto: https://www.flaticon.com/free-icon/pesto_7189559
+leek: https://www.flaticon.com/free-icon/leek_7179806
+burguer: https://www.flaticon.com/free-icon/burger_7178514
+taco: https://www.flaticon.com/free-icon/taco_7178519
+pop-corn: https://www.flaticon.com/free-icon/pop-corn_7178523
+sandwich: https://www.flaticon.com/free-icon/sandwich_7178533
+kebab: https://www.flaticon.com/free-icon/kebab_7178572
+raspberry: https://www.flaticon.com/free-icon/raspberry_6975944
+cranberry: https://www.flaticon.com/free-icon/cranberry_6975950
+carambola: https://www.flaticon.com/free-icon/carambola_6975921
+mango: https://www.flaticon.com/free-icon/mango_6975892
+coconut: https://www.flaticon.com/free-icon/coconut_6975887
+papaya: https://www.flaticon.com/free-icon/papaya_6975895
+mangosteen: https://www.flaticon.com/free-icon/mangosteen_6975893
+cherry: https://www.flaticon.com/free-icon/cherry_6975913
+strawberry: https://www.flaticon.com/free-icon/strawberry_6975947
+vanilla: https://www.flaticon.com/free-icon/vanilla_6969374
+thyme: https://www.flaticon.com/free-icon/thyme_6969429
+clove: https://www.flaticon.com/free-icon/clove_6969364
+cinnamon: https://www.flaticon.com/free-icon/cinnamon_6969384
+spinach: https://www.flaticon.com/free-icon/spinach_6969408
+brownie: https://www.flaticon.com/free-icon/brownie_6718198
+pantry: https://www.flaticon.com/free-icon/pantry_2718310
+hummus: https://www.flaticon.es/icono-gratis/hummus_4366611
+rice: https://www.flaticon.com/free-icon/rice_6533996
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
