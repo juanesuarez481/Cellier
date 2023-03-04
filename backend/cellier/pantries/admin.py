@@ -4,7 +4,7 @@ from .models import Ingredient, Recipe, Pantrie, IngredientRecipe, RecipePantrie
 
 
 class IngredientAdmin(admin.ModelAdmin):
-    list_display = ("name", "get_quantity")
+    list_display = ("name", "get_quantity", "related_name")
 
     def get_quantity(self, obj):
         return str(obj.quantity)+" "+obj.quantity_unit
@@ -13,7 +13,7 @@ class IngredientAdmin(admin.ModelAdmin):
 class RecipeAdmin(admin.ModelAdmin):
     list_display = ("name", "get_preparation_time",
                     "difficulty", "get_ingredients",
-                    "preparation")
+                    "preparation", "related_name")
 
     def get_preparation_time(self, obj):
         return str(obj.preparation_time)+" "+str(obj.preparation_time_unit)

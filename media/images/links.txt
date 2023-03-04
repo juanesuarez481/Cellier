@@ -1,10 +1,10 @@
 recipe-book: https://www.flaticon.com/free-icon/recipe-book_7373689
-vegetables-salad: https://www.flaticon.com/free-icon/vegetables_9724000
+vegan-salad: https://www.flaticon.com/free-icon/vegetables_9724000
 muffin: https://www.flaticon.com/free-icon/muffin_9535813
 filtered-coffee: https://www.flaticon.com/free-icon/cold-brew_9535646
 moka-coffee: https://www.flaticon.com/free-icon/coffee-maker_9535607
 pancakes: https://www.flaticon.com/free-icon/pancakes_4893698
-vegetables-salad-2: https://www.flaticon.com/free-icon/salad_9256264
+vegetarian-salad: https://www.flaticon.com/free-icon/salad_9256264
 avocado: https://www.flaticon.com/free-icon/avocado_9477522
 pumpkin: https://www.flaticon.com/free-icon/pumpkin_7189469
 yellow-corn: https://www.flaticon.com/free-icon/corn_9477586
@@ -86,6 +86,7 @@ brownie: https://www.flaticon.com/free-icon/brownie_6718198
 pantry: https://www.flaticon.com/free-icon/pantry_2718310
 hummus: https://www.flaticon.es/icono-gratis/hummus_4366611
 rice: https://www.flaticon.com/free-icon/rice_6533996
+ingredients: https://www.flaticon.com/free-icon/vegetables_5346481
 
 
 
