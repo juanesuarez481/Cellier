@@ -5,8 +5,7 @@ from pantries.models import Ingredient, Recipe
 class IngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingredient
-        fields = ['ingredient_id', 'name', 'quantity',
-                  'quantity_unit', 'related_name']
+        fields = ['ingredient_id', 'name', 'related_name']
 
 
 class RecipeSerializer(serializers.ModelSerializer):
@@ -15,5 +14,5 @@ class RecipeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recipe
         fields = ['name', 'ingredients', 'preparation',
-                  'preparation_time', 'preparation_time_unit',
-                  'difficulty', 'created_at', 'related_name']
+                  'preparation_time', 'difficulty',
+                  'created_at', 'related_name']
