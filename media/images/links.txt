@@ -87,9 +87,14 @@ pantry: https://www.flaticon.com/free-icon/pantry_2718310
 hummus: https://www.flaticon.es/icono-gratis/hummus_4366611
 rice: https://www.flaticon.com/free-icon/rice_6533996
 ingredients: https://www.flaticon.com/free-icon/vegetables_5346481
-
-
-
+volume: https://www.flaticon.com/free-icon/measure-cup_2539677
+quantities: https://www.flaticon.com/free-icon/measuring-spoon_6973301
+mass: https://www.flaticon.com/free-icon/measuring_3335748
+units:https://www.flaticon.com/free-icon/3d-printer_4228892
+time: https://www.flaticon.com/free-icon/chronometer_850960
+temperature: https://www.flaticon.com/free-icon/temperature_3815449
+homebg1: https://www.flaticon.com/free-icon/cooking_4072091
+homebg2: https://www.flaticon.com/free-icon/cooking_5190192
 
 
 

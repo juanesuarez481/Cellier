@@ -3,15 +3,17 @@ from rest_framework.decorators import api_view, authentication_classes, permissi
 from rest_framework.response import Response
 # from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 # from rest_framework.permissions import IsAuthenticated
-from pantries.models import Recipe, Ingredient
-from .serializers import RecipeSerializer, IngredientSerializer
+from pantries.models import Recipe, Ingredient, Quantity, Unit
+from .serializers import RecipeSerializer, IngredientSerializer, QuantitySerializer, UnitSerializer
 
 
 @api_view(['GET'])
 def ApiOverview(request):
     api_urls = {
-        'all_recipes': 'all/',
+        'all_recipes': 'recipes/',
         'all_ingredients': 'ingredients/',
+        'all_quantities': 'quantities/',
+        'all_units': 'units/',
     }
 
     return Response(api_urls)
@@ -20,7 +22,7 @@ def ApiOverview(request):
 @api_view(['GET'])
 # @authentication_classes([SessionAuthentication, BasicAuthentication])
 # @permission_classes([IsAuthenticated])
-def view_items(request):
+def view_recipes(request):
 
     if request.query_params:
         items = Recipe.objects.filter(**request.query_params.dict())
@@ -43,5 +45,33 @@ def view_ingredients(request):
 
     if items:
         return Response(IngredientSerializer(items, many=True).data)
+    else:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+@api_view(['GET'])
+def view_quantities(request):
+
+    if request.query_params:
+        items = Quantity.objects.filter(**request.query_params.dict())
+    else:
+        items = Quantity.objects.all()
+
+    if items:
+        return Response(QuantitySerializer(items, many=True).data)
+    else:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+@api_view(['GET'])
+def view_units(request):
+
+    if request.query_params:
+        items = Unit.objects.filter(**request.query_params.dict())
+    else:
+        items = Unit.objects.all()
+
+    if items:
+        return Response(UnitSerializer(items, many=True).data)
     else:
         return Response(status=status.HTTP_404_NOT_FOUND)

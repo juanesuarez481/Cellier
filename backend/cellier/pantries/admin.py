@@ -1,26 +1,29 @@
 from django.contrib import admin
 
-from .models import Unit, Quantity, Ingredient, Recipe, Pantrie
-from .models import Quantity, IngredientQuantityRecipe, RecipePantrie
+from .models import (Unit, Quantity, Ingredient, Recipe, Pantrie)
+from .models import (QuantityRecipe, RecipePantrie)
+
+
+class UnitAdmin(admin.ModelAdmin):
+    list_display = ("name", "related_name")
 
 
 class IngredientAdmin(admin.ModelAdmin):
     list_display = ("name", "related_name")
 
 
+class IngredientQuantityInline(admin.StackedInline):
+    model = QuantityRecipe
+    extra = 1
+
+
 class RecipeAdmin(admin.ModelAdmin):
-    list_display = ("name", "preparation_time",
-                    "difficulty", "get_ingredients",
-                    "preparation", "related_name")
-
-    def get_ingredients(self, obj):
-        return ", ".join([i.name for i in obj.ingredients.all()])
+    inlines = [IngredientQuantityInline,]
+    list_display = ("name", "related_name")
 
 
-admin.site.register(Unit)
-admin.site.register(Quantity)
+admin.site.register(Unit, UnitAdmin)
 admin.site.register(Ingredient, IngredientAdmin)
-admin.site.register(IngredientQuantityRecipe)
+admin.site.register(Quantity)
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(Pantrie)
-admin.site.register(RecipePantrie)

@@ -2,59 +2,59 @@ from django.db import models
 
 
 class Unit(models.Model):
-    TEMPERATURE = 'T'
-    CELCIUS = '°C'
-    FARENHEIT = '°F'
+    # TEMPERATURE = 'Temperature'
+    # CELCIUS = 'Celcius'
+    # FARENHEIT = 'Farenheit'
 
-    TIME = 't'
-    SECONDS = 's'
-    MINUTES = 'm'
-    HOURS = 'h'
-    DAYS = 'd'
-    WEEKS = 'w'
+    # TIME = 'Time'
+    # SECONDS = 'Seconds'
+    # MINUTES = 'Minutes'
+    # HOURS = 'Hours'
+    # DAYS = 'Days'
+    # WEEKS = 'Weeks'
 
-    VOLUME = 'V'
-    LITRE = 'l'
-    MILILITRE = 'ml'
+    VOLUME = 'Volume'
+    LITRE = 'Litre'
+    MILILITRE = 'Mililitre'
 
-    MASS = 'M'
-    GRAMS = 'g'
-    KILOGRAMS = 'Kg'
+    MASS = 'Mass'
+    GRAMS = 'Grams'
+    KILOGRAMS = 'Kilograms'
 
-    AMOUNT = 'Z'
-    UNIT = 'u'
-    SPOON = 'sp'
+    AMOUNT = 'Amount'
+    UNIT = 'Unit'
+    SPOON = 'Spoon'
 
     UNIT_CHOICES = [
-        (TEMPERATURE, (
-            (CELCIUS, 'Celcius'),
-            (FARENHEIT, 'Farenheit')
-        )),
-        (TIME, (
-            (SECONDS, 'Seconds'),
-            (MINUTES, 'Minutes'),
-            (HOURS, 'Hours'),
-            (DAYS, 'Days'),
-            (WEEKS, 'Weeks')
-        )),
+        # (TEMPERATURE, (
+        #     (CELCIUS, '°C'),
+        #     (FARENHEIT, '°F')
+        # )),
+        # (TIME, (
+        #     (SECONDS, 's'),
+        #     (MINUTES, 'm'),
+        #     (HOURS, 'h'),
+        #     (DAYS, 'd'),
+        #     (WEEKS, 'w')
+        # )),
         (MASS, (
-            (GRAMS, 'Grams'),
-            (KILOGRAMS, 'Kilograms'),
+            (GRAMS, 'g'),
+            (KILOGRAMS, 'kg'),
         )),
         (VOLUME, (
-            (LITRE, 'Litre'),
-            (MILILITRE, 'Mililitre')
+            (LITRE, 'l'),
+            (MILILITRE, 'ml')
         )),
         (AMOUNT, (
-            (UNIT, 'Unit'),
-            (SPOON, 'Spoon')
+            (UNIT, 'u'),
+            (SPOON, 'spn')
         ))
     ]
     unit_id = models.BigAutoField(primary_key=True)
     name = models.CharField(
         max_length=18, choices=UNIT_CHOICES, default=UNIT, unique=True)
-    description = models.TextField(blank=True)
     related_name = models.CharField(max_length=120, default="N/A")
+    description = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -63,22 +63,6 @@ class Unit(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class Quantity(models.Model):
-    quantity_id = models.BigAutoField(primary_key=True)
-    value = models.FloatField(default=0)
-    unit = models.ForeignKey(Unit, on_delete=models.CASCADE)
-    error = models.FloatField(default=0)
-    related_name = models.CharField(max_length=120, default="N/A")
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        ordering = ['value', 'unit']
-
-    def __str__(self):
-        return str(self.value)+' '+self.unit.name
 
 
 class Ingredient(models.Model):
@@ -95,6 +79,22 @@ class Ingredient(models.Model):
         return self.name
 
 
+class Quantity(models.Model):
+    quantity_id = models.BigAutoField(primary_key=True)
+    value = models.FloatField(default=0)
+    unit = models.ForeignKey(Unit, on_delete=models.CASCADE)
+    ingredient = models.ForeignKey(
+        Ingredient, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['value']
+
+    def __str__(self):
+        return str(self.value)+' '+self.unit.name+' '+self.ingredient.name
+
+
 class Recipe(models.Model):
     BASIC = 'Basic'
     INTERMEDIATE = 'Intermediate'
@@ -106,14 +106,12 @@ class Recipe(models.Model):
     ]
     recipe_id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=120)
-    ingredients = models.ManyToManyField(
-        Ingredient, through='IngredientQuantityRecipe'
-    )
+    related_name = models.CharField(max_length=120, default="N/A")
     preparation = models.TextField(blank=True)
-    preparation_time = models.PositiveIntegerField(default=0)
+    preparation_time = models.FloatField(default=0)
     difficulty = models.CharField(
         max_length=12, choices=DIFFICULTY_CHOICES, default=BASIC)
-    related_name = models.CharField(max_length=120, default="N/A")
+    quantities = models.ManyToManyField(Quantity, through='QuantityRecipe')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -124,15 +122,15 @@ class Recipe(models.Model):
         return self.name
 
 
-class IngredientQuantityRecipe(models.Model):
-    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-    quantity = models.ForeignKey(Quantity, on_delete=models.CASCADE)
+class QuantityRecipe(models.Model):
+    quantity = models.ForeignKey(
+        Quantity, on_delete=models.CASCADE)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.ingredient.name+' ( '+str(self.quantity.value)+' '+self.quantity.unit.name+' ) -> '+self.recipe.name
+        return str(self.quantity.value)+' '+self.quantity.unit.name+' de '+self.quantity.ingredient.name
 
 
 class Pantrie(models.Model):

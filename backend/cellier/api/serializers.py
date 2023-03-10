@@ -1,18 +1,33 @@
 from rest_framework import serializers
-from pantries.models import Ingredient, Recipe
+from pantries.models import Unit, Quantity, Ingredient, Recipe
+
+
+class UnitSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Unit
+        fields = ['name', 'related_name']
 
 
 class IngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingredient
-        fields = ['ingredient_id', 'name', 'related_name']
+        fields = ['name', 'related_name']
+
+
+class QuantitySerializer(serializers.ModelSerializer):
+    unit = UnitSerializer()
+    ingredient = IngredientSerializer()
+
+    class Meta:
+        model = Quantity
+        fields = ['value', 'unit', 'ingredient']
 
 
 class RecipeSerializer(serializers.ModelSerializer):
-    ingredients = IngredientSerializer(many=True)
+    quantities = QuantitySerializer(many=True)
 
     class Meta:
         model = Recipe
-        fields = ['name', 'ingredients', 'preparation',
+        fields = ['name', 'related_name', 'preparation',
                   'preparation_time', 'difficulty',
-                  'created_at', 'related_name']
+                  'quantities', 'created_at']
