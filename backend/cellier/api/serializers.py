@@ -1,5 +1,27 @@
 from rest_framework import serializers
-from pantries.models import Unit, Quantity, Ingredient, Recipe
+from pantries.models import Unit, Quantity, Ingredient, Recipe, Info, Fact, Nutrition
+
+
+class FactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Fact
+        fields = ['name', 'description']
+
+
+class InfoSerializer(serializers.ModelSerializer):
+    facts = FactSerializer(many=True)
+
+    class Meta:
+        model = Info
+        fields = ['name', 'origin',
+                  'availability', 'facts']
+
+
+class NutritionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Nutrition
+        fields = ['name', 'water', 'fiber', 'vitamins',
+                  'minerals', 'carbs', 'lipids', 'proteins']
 
 
 class UnitSerializer(serializers.ModelSerializer):
@@ -9,9 +31,12 @@ class UnitSerializer(serializers.ModelSerializer):
 
 
 class IngredientSerializer(serializers.ModelSerializer):
+    info = InfoSerializer()
+    nutrition = NutritionSerializer()
+
     class Meta:
         model = Ingredient
-        fields = ['name', 'related_name']
+        fields = ['name', 'related_name', 'info', 'nutrition']
 
 
 class QuantitySerializer(serializers.ModelSerializer):

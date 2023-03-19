@@ -95,9 +95,13 @@ time: https://www.flaticon.com/free-icon/chronometer_850960
 temperature: https://www.flaticon.com/free-icon/temperature_3815449
 homebg1: https://www.flaticon.com/free-icon/cooking_4072091
 homebg2: https://www.flaticon.com/free-icon/cooking_5190192
-
-
-
+amount: https://www.flaticon.com/free-icon/pie-chart_8660614
+nutrition: https://www.flaticon.com/free-icon/pyramid_3274038
+info: https://www.flaticon.com/free-icon/file_4301588
+facts: https://www.flaticon.com/free-icon/post-it_2383602
+homebg3: https://www.flaticon.com/free-icon/notes_9756854
+settings: https://www.flaticon.com/free-icon/settings_807313
+usuario: https://www.flaticon.es/icono-gratis/usuario_1077114
 
 
 

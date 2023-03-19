@@ -3,8 +3,8 @@ from rest_framework.decorators import api_view, authentication_classes, permissi
 from rest_framework.response import Response
 # from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 # from rest_framework.permissions import IsAuthenticated
-from pantries.models import Recipe, Ingredient, Quantity, Unit
-from .serializers import RecipeSerializer, IngredientSerializer, QuantitySerializer, UnitSerializer
+from pantries.models import Recipe, Ingredient, Quantity, Unit, Info, Nutrition
+from .serializers import RecipeSerializer, IngredientSerializer, QuantitySerializer, UnitSerializer, InfoSerializer, NutritionSerializer
 
 
 @api_view(['GET'])
@@ -14,6 +14,8 @@ def ApiOverview(request):
         'all_ingredients': 'ingredients/',
         'all_quantities': 'quantities/',
         'all_units': 'units/',
+        'all_nutrition': 'nutrition/',
+        'all_info': 'info/'
     }
 
     return Response(api_urls)
@@ -73,5 +75,33 @@ def view_units(request):
 
     if items:
         return Response(UnitSerializer(items, many=True).data)
+    else:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+@api_view(['GET'])
+def view_nutrition(request):
+
+    if request.query_params:
+        items = Nutrition.objects.filter(**request.query_params.dict())
+    else:
+        items = Nutrition.objects.all()
+
+    if items:
+        return Response(NutritionSerializer(items, many=True).data)
+    else:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+@api_view(['GET'])
+def view_info(request):
+
+    if request.query_params:
+        items = Info.objects.filter(**request.query_params.dict())
+    else:
+        items = Info.objects.all()
+
+    if items:
+        return Response(InfoSerializer(items, many=True).data)
     else:
         return Response(status=status.HTTP_404_NOT_FOUND)

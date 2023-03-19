@@ -1,17 +1,78 @@
 from django.db import models
 
 
-class Unit(models.Model):
-    # TEMPERATURE = 'Temperature'
-    # CELCIUS = 'Celcius'
-    # FARENHEIT = 'Farenheit'
+class Fact(models.Model):
+    info_id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=120, default='N/A')
+    description = models.TextField(blank=True, default='N/A')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
-    # TIME = 'Time'
-    # SECONDS = 'Seconds'
-    # MINUTES = 'Minutes'
-    # HOURS = 'Hours'
-    # DAYS = 'Days'
-    # WEEKS = 'Weeks'
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
+
+
+class Info(models.Model):
+    info_id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=120, default='N/A')
+    origin = models.CharField(max_length=120, default='N/A')
+    availability = models.CharField(max_length=120, default='N/A')
+    facts = models.ManyToManyField(Fact, through='FactInfo')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['info_id']
+
+    def __str__(self):
+        return self.name
+
+
+class FactInfo(models.Model):
+    fact = models.ForeignKey(
+        Fact, on_delete=models.CASCADE)
+    info = models.ForeignKey(Info, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.fact.name+' de '+self.info.name
+
+
+class Nutrition(models.Model):
+    nutrition_id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=120, default='N/A')
+    water = models.CharField(max_length=120, default='N/A')
+    fiber = models.CharField(max_length=120, default='N/A')
+    vitamins = models.CharField(max_length=120, default='N/A')
+    minerals = models.CharField(max_length=120, default='N/A')
+    carbs = models.CharField(max_length=120, default='N/A')
+    lipids = models.CharField(max_length=120, default='N/A')
+    proteins = models.CharField(max_length=120, default='N/A')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['nutrition_id']
+
+    def __str__(self):
+        return self.name
+
+
+class Unit(models.Model):
+    TEMPERATURE = 'Temperature'
+    CELCIUS = 'Celcius'
+    FARENHEIT = 'Farenheit'
+
+    TIME = 'Time'
+    SECONDS = 'Seconds'
+    MINUTES = 'Minutes'
+    HOURS = 'Hours'
+    DAYS = 'Days'
+    WEEKS = 'Weeks'
 
     VOLUME = 'Volume'
     LITRE = 'Litre'
@@ -26,17 +87,17 @@ class Unit(models.Model):
     SPOON = 'Spoon'
 
     UNIT_CHOICES = [
-        # (TEMPERATURE, (
-        #     (CELCIUS, '°C'),
-        #     (FARENHEIT, '°F')
-        # )),
-        # (TIME, (
-        #     (SECONDS, 's'),
-        #     (MINUTES, 'm'),
-        #     (HOURS, 'h'),
-        #     (DAYS, 'd'),
-        #     (WEEKS, 'w')
-        # )),
+        (TEMPERATURE, (
+            (CELCIUS, '°C'),
+            (FARENHEIT, '°F')
+        )),
+        (TIME, (
+            (SECONDS, 's'),
+            (MINUTES, 'm'),
+            (HOURS, 'h'),
+            (DAYS, 'd'),
+            (WEEKS, 'w')
+        )),
         (MASS, (
             (GRAMS, 'g'),
             (KILOGRAMS, 'kg'),
@@ -69,6 +130,8 @@ class Ingredient(models.Model):
     ingredient_id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=120)
     related_name = models.CharField(max_length=120, default="N/A")
+    info = models.ForeignKey(Info, on_delete=models.CASCADE)
+    nutrition = models.ForeignKey(Nutrition, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
