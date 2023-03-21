@@ -4,10 +4,12 @@ Recipes, ingredients, quantities and informations web management system with too
 
 ```mermaid
 graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+    User-->Pantries;
+    Pantries-->Recipes;
+    Recipes-->Quantities;
+    Quantities-->Ingredients;
+    Ingredients-->Information;
+    Ingredients-->Nutrition;
 ```
 
 **The Cauchy-Schwarz Inequality**
