@@ -25,9 +25,9 @@ $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \
 All graphics and resources are open source and respectively atributed to their authors
 
 
-## Juan E. Suárez Z.
-## BS Electronics Engeeniring
-## WD Data Integration/Infrastructure
-## Env, Ant, CO 2023
+### Juan E. Suárez Z.
+### BS Electronics Engeeniring
+### WD Data Integration/Infrastructure
+### Env, Ant, CO 2023
 
-### Co - Creative Autor: Juliana Suárez
+#### Co - Creative Autor: Juliana Suárez
